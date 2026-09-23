@@ -380,7 +380,7 @@
       /* ---------- PROJECTS ---------- */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
         gap: 24px;
       }
       .project-card {
@@ -745,6 +745,52 @@
           font-size: 15px;
         }
       }
+
+      /* ---------- MOBILE / TABLET FIXES (360-800) ---------- */
+      @media (max-width: 800px) {
+        .project-actions {
+          flex-wrap: nowrap;
+          gap: 8px;
+        }
+        .project-actions .btn {
+          flex: 1 1 0;
+          justify-content: center;
+          padding: 9px 6px;
+          font-size: 11.5px;
+          white-space: nowrap;
+        }
+
+        .contact-terminal {
+          padding: 24px 16px;
+        }
+        .contact-terminal .output {
+          padding-left: 0;
+        }
+        .contact-links {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .contact-link {
+          min-width: 0;
+          padding: 12px 14px;
+        }
+        .contact-link > span {
+          min-width: 0;
+        }
+        .contact-link .value {
+          display: block;
+          overflow-wrap: anywhere;
+        }
+
+        footer {
+          padding: 24px 16px 32px;
+          line-height: 1.8;
+        }
+      }
+      @media (max-width: 560px) {
+        .contact-links {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
     </style>
   </head>
   <body>
@@ -788,7 +834,7 @@
           <div class="terminal-body">
             <div class="line"><span class="prompt">$</span> whoami</div>
             <div class="line hero-name">Sanu Ranjan</div>
-            <div class="line hero-role">Full-stack Developer (MERN)</div>
+            <div class="line hero-role">Full-stack developer (MERN)</div>
             <div class="line"><span class="prompt">$</span> about.txt</div>
             <div class="line output">
               A developer, focused on crafting elegant, user centric web apps.
@@ -802,7 +848,7 @@
             <div class="hero-cta">
               <a href="#projects" class="btn btn-primary">Projects</a>
               <a
-                href="https://drive.google.com/file/d/194zfPN19Gb8LuT8vERmM93yF2BZdae0U/view?usp=sharing"
+                href="https://drive.google.com/file/d/1jo4L-0fbGvgGnOw8sLFiE0gbxsfP5CED/view?usp=sharing"
                 class="btn btn-ghost"
                 target="_blank"
                 rel="noopener"
