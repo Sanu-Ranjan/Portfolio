@@ -1,0 +1,21 @@
+name: redeploy Portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ssh vps and deploy
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{secrets.VPS_HOST}}
+          username: ${{secrets.VPS_USER}}
+          key: ${{secrets.VPS_SSH_KEY}}
+          script: |
+            cd /root/portfolio/Portfolio
+            git pull
+            cp -r /root/portfolio/Portfolio/* /var/www/portfolio/
